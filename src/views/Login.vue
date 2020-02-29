@@ -21,14 +21,14 @@ export default {
     password: 'password',
   }),
   methods: {
-    login() {
+    async login() {
       const loginData = {
         email: this.email,
         password: this.password,
       };
 
       try {
-        fetch('/api/login', {
+        await fetch('/api/login', {
           method: 'POST',
           body: loginData,
         });
