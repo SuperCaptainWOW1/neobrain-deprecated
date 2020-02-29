@@ -12,7 +12,9 @@
 </template>
 
 <script>
-import router from 'vue-router';
+import axios from 'axios';
+// eslint-disable-next-line import/no-cycle
+import router from '../router';
 
 export default {
   name: 'Login',
@@ -29,13 +31,13 @@ export default {
 
       try {
         // Make a variable for server path later
-        await fetch('http://localhost:3000/api/login', {
-          method: 'POST',
-          body: loginData,
+        await axios.post('http://localhost:3000/api/login', loginData, {
+          withCredentials: true,
         });
         console.log('Logged in');
         router.push('/chat');
       } catch (err) {
+        console.log(err);
         console.log('Cannot log in');
       }
     },
