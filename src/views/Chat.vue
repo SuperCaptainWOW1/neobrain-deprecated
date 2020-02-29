@@ -30,7 +30,8 @@ export default {
   methods: {
     async getUserData() {
       try {
-        const user = await fetch('api/user');
+        // Make a variable for server path later
+        const user = await fetch('http://localhost:3000/api/user');
         this.user = await user;
       } catch (err) {
         console.log(err);

@@ -28,7 +28,8 @@ export default {
       };
 
       try {
-        await fetch('/api/login', {
+        // Make a variable for server path later
+        await fetch('http://localhost:3000/api/login', {
           method: 'POST',
           body: loginData,
         });
